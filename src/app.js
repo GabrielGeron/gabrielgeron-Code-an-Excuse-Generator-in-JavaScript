@@ -12,12 +12,7 @@ window.onload = function() {
     "while I was praying"
   ];
 
-  const getRandomElement = arr => {
-    if (!Array.isArray(arr) || arr.length === 0) {
-      throw new Error("Invalid array");
-    }
-    return arr[Math.floor(Math.random() * arr.length)];
-  };
+  const getRandomElement = arr => arr[Math.floor(Math.random() * arr.length)];
 
   const generateExcuse = () => {
     const excuse = `${getRandomElement(who)} ${getRandomElement(
@@ -28,13 +23,6 @@ window.onload = function() {
 
   const excuseElement = document.getElementById("excuse");
 
-  // Verificar si es la primera carga
-  if (localStorage.getItem("firstLoad") === null) {
-    // Establecer la bandera de primera carga
-    localStorage.setItem("firstLoad", "false");
-  } else {
-    // Generar y mostrar una nueva excusa
-
-    excuseElement.innerHTML = generateExcuse();
-  }
+  // Generar y mostrar una nueva excusa
+  excuseElement.innerHTML = generateExcuse();
 };
